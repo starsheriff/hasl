@@ -31,3 +31,8 @@ addEntry :: Ord k => Map k [a] -> k -> [a] -> Map k [a]
 addEntry m k v = case Map.lookup k m of
                    Nothing -> Map.insert k v m
                    Just vs -> Map.insert k (vs ++ v) m
+
+safeHead :: [a] -> Maybe a
+safeHead xs = case xs of
+                [] -> Nothing
+                _ -> Just $ head xs
